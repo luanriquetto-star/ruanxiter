@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUAN XITER - @ru4n_xq</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: radial-gradient(circle at center, #0a0a0a 0%, #000000 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Press Start 2P', cursive;
+            overflow: hidden;
+        }
+        
+        #panel {
+            width: 840px;
+            height: 640px;
+            background: linear-gradient(180deg, #0f0f0f 0%, #000 100%);
+            border: 8px solid #00ff41;
+            border-radius: 12px;
+            box-shadow: 0 0 60px #00ff41aa;
+            position: relative;
+            overflow: hidden;
+            color: #00ff41;
+        }
+        
+        .hidden { transform: translateY(-150%); opacity: 0; }
+        
+        .header {
+            text-align: center;
+            font-size: 28px;
+            padding: 15px;
+            border-bottom: 4px solid #00ff41;
+        }
+        
+        .hide-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: red;
+            color: #fff;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px;
+        }
+        
+        .btn {
+            padding: 12px 20px;
+            border: 3px solid #00ff41;
+            background: black;
+            color: #00ff41;
+            cursor: pointer;
+        }
+        
+        .inject-btn {
+            background: red;
+            color: white;
+        }
+        
+        .status {
+            text-align: center;
+            margin: 20px;
+        }
+        
+        .section {
+            margin: 20px;
+            border: 2px solid #00ff41;
+            padding: 10px;
+        }
+        
+        .slider-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div id="panel">
+    <div class="header">
+        RUAN XITER
+        <button class="hide-btn" onclick="togglePanel()">ESCONDER</button>
+    </div>
+
+    <div class="buttons">
+        <button class="btn" onclick="startGame()">INICIAR</button>
+        <button class="btn inject-btn" onclick="inject()">INJETAR</button>
+    </div>
+
+    <div id="status" class="status">
+        STATUS: AGUARDANDO
+    </div>
+
+    <div class="section">
+        <h3>AIMLOCK</h3>
+        <label><input type="checkbox"> HEAD</label><br>
+        <label><input type="checkbox"> NECK</label><br>
+        <label><input type="checkbox"> CHEST</label>
+    </div>
+
+    <div class="section">
+        <h3>AJUSTES</h3>
+        
+        <div class="slider-container">
+            <span>CABEÇA</span>
+            <input type="range" min="0" max="100">
+        </div>
+
+        <div class="slider-container">
+            <span>PESCOÇO</span>
+            <input type="range" min="0" max="100">
+        </div>
+
+        <div class="slider-container">
+            <span>PEITO</span>
+            <input type="range" min="0" max="100">
+        </div>
+    </div>
+</div>
+
+<script>
+function startGame(){
+    document.getElementById("status").innerText = "FREE FIRE INICIADO";
+}
+
+function inject(){
+    let status = document.getElementById("status");
+    status.innerText = "INJETANDO...";
+    
+    setTimeout(()=>{
+        status.innerText = "INJETADO COM SUCESSO";
+    },2000);
+}
+
+function togglePanel(){
+    let panel = document.getElementById("panel");
+    panel.classList.toggle("hidden");
+}
+</script>
+
+</body>
+</html>
